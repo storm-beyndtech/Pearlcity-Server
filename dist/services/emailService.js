@@ -47,6 +47,7 @@ function formatCourseName(courseId) {
         "frontend-development": "Frontend Development",
         "backend-development": "Backend Development",
         "fullstack-development": "Fullstack Development",
+        "cloud-engineering": "Cloud-Engineering",
         "graphic-design": "Graphic Design",
         "ui-ux-design": "UI/UX Design",
     };
@@ -60,6 +61,7 @@ function emailPreference(courseId) {
         "fullstack-development": "fullstack@pearl-itcity.com",
         "graphic-design": "graphic.design@pearl-itcity.com",
         "ui-ux-design": "graphic.design@pearl-itcity.com",
+        "cloud-engineering": "frontdesk@pearl-itcity.com",
     };
     return map[courseId] || "frontdesk@pearl-itcity.com";
 }
