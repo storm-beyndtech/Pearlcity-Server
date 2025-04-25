@@ -46,9 +46,9 @@ function formatCourseName(courseId) {
     const map = {
         "frontend-development": "Frontend Development",
         "backend-development": "Backend Development",
-        "fullstack-development": "Backend Development",
+        "fullstack-development": "Fullstack Development",
         "graphic-design": "Graphic Design",
-        "ui-ux": "UI/UX Design",
+        "ui-ux-design": "UI/UX Design",
     };
     return map[courseId] || "Tech";
 }
@@ -59,7 +59,7 @@ function emailPreference(courseId) {
         "backend-development": "backend@pearl-itcity.com",
         "fullstack-development": "fullstack@pearl-itcity.com",
         "graphic-design": "graphic.design@pearl-itcity.com",
-        "ui-ux": "graphic.design@pearl-itcity.com",
+        "ui-ux-design": "graphic.design@pearl-itcity.com",
     };
     return map[courseId] || "frontdesk@pearl-itcity.com";
 }
@@ -150,7 +150,7 @@ function registerCourseFeedbackMail(fullName, email, courseId) {
 
       <p>Our team is currently processing your registration, and we'll be in touch shortly with all the necessary details, including the program schedule, access instructions, and resources.</p>
 
-      <p>In the meantime, if you have any questions or need assistance, feel free to reach out to us at <a href="mailto:graphic.design@pearl-itcity.com">graphic.design@pearl-itcity.com</a> or ‪+234 906 561 6298‬.</p>
+      <p>In the meantime, if you have any questions or need assistance, feel free to reach out to us at <a href="${emailPreference(courseId)}">${emailPreference(courseId)}</a> or ‪+234 906 561 6298‬.</p>
 
       <p>We're excited to support your journey into the world of ${courseName}!</p>
 
