@@ -23,7 +23,7 @@ if (!process.env.SMTP_USER || !process.env.SMTP_PASS) {
 }
 exports.transporter = nodemailer_1.default.createTransport({
     pool: true,
-    host: "mail.privateemail.com",
+    host: "smtp.hostinger.com",
     port: 465,
     auth: {
         user: process.env.SMTP_USER,

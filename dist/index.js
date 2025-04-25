@@ -36,19 +36,46 @@ app.listen(PORT, () => {
 app.get("/", (req, res) => {
     res.send("API running 🥳");
 });
-// Send email route
-app.post("/send-mail", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    const { mails, subject, message } = req.body;
+// contact mail route
+app.post("/api/contact-us", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    const { email, name, subject, message } = req.body;
     try {
-        // Add your email sending logic here
-        const mailRes = yield (0, emailService_1.bulkMail)(mails, subject, message);
-        if (mailRes.error) {
+        const mailRes = yield (0, emailService_1.contactUsMail)(email, name, subject, message);
+        if (mailRes.error)
             throw new Error(mailRes.error);
-        }
         res.status(200).json({ message: "Mail Sent Successfully..." });
     }
     catch (error) {
         console.error("Error sending email:", error);
-        res.status(500).json({ error: "Failed to send email" });
+        res.status(500).json({ message: "Failed to send email" });
+    }
+}));
+// Register course route
+app.post("/api/register-course", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const mailRes = yield (0, emailService_1.registerCourseMail)(Object.assign({}, req.body));
+        if (mailRes.error)
+            throw new Error(mailRes.error);
+        const mailRes2 = yield (0, emailService_1.registerCourseFeedbackMail)(req.body.fullName, req.body.email, req.body.courseId);
+        if (mailRes2.error)
+            throw new Error(mailRes2.error);
+        res.status(200).json({ message: "Reg Successfully 🎉, we've sent you an email." });
+    }
+    catch (error) {
+        console.error("Error sending email:", error);
+        res.status(500).json({ message: "Failed to send email" });
+    }
+}));
+// Register course route
+app.post("/api/newsletter-sub", (req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        const mailRes = yield (0, emailService_1.newsletterMail)(req.body.email);
+        if (mailRes.error)
+            throw new Error(mailRes.error);
+        res.status(200).json({ message: "Mail Sent Successfully..." });
+    }
+    catch (error) {
+        console.error("Error sending email:", error);
+        res.status(500).json({ message: "Failed to send email" });
     }
 }));
