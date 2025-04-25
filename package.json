@@ -1,0 +1,31 @@
+{
+	"name": "bank_mail_service",
+	"version": "1.0.0",
+	"description": "",
+	"main": "server.js",
+	"scripts": {
+		"start": "node dist/index.js",
+		"dev": "nodemon --exec ts-node src/index.ts",
+		"build": "tsc",
+		"vercel-build": "tsc"
+	},
+	"keywords": [],
+	"dependencies": {
+		"cors": "^2.8.5",
+		"dotenv": "^16.0.3",
+		"express": "^4.21.2",
+		"mongodb": "^5.3.0",
+		"mongoose": "^6.9.0",
+		"nodemailer": "^6.9.1"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"@types/cors": "^2.8.17",
+		"@types/express": "^5.0.1",
+		"@types/nodemailer": "^6.4.17",
+		"nodemon": "^3.1.9",
+		"ts-node": "^10.9.2",
+		"typescript": "^5.8.2"
+	}
+}
